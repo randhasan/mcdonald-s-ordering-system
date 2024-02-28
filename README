@@ -1,0 +1,1 @@
+This repo includes all of the different parts that make up my Flask server API for both the customer ordering component of this McDonald's, as well as the kitchen which sees the orders and completes them accordingly.
