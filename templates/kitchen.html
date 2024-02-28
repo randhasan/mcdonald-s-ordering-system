@@ -1,0 +1,39 @@
+<!-- kitchen.html -->
+
+<!DOCTYPE html>
+<head>
+    <title>Kitchen</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/kitchen.css') }}">
+</head>
+
+<body>
+    <h1>Kitchen - List of Current Orders</h1>
+
+    <ul class="orders">
+        {% for order in orders_json %}
+        <li class="order-item">
+            <h3>Order Number: {{ order.id }}</h3>
+            <h3>Customer: {{ order.customer_name }}</h3>
+            <ul>
+                {% for item in order.orders.split('\n') %}
+                  {% if item %}  <!-- prevents extra bullet for the last new line char.  just enough bullets for all the items in the order -->
+                    <li>{{ item }}</li>
+                  {% endif %}
+                {% endfor %}
+            </ul><br>
+            <a href="{{ url_for('delete_order', id=order.id) }}" class="delete-button">Delete Order</a> <!-- path to delete each order -->
+        </li>
+        {% endfor %}
+    </ul>
+
+    <script> // given
+        var timeout = 5000;
+        window.setTimeout(poller, timeout);
+        function poller() {
+            window.location = "http://127.0.0.1:5000/kitchen";
+            window.setTimeout(poller, timeout);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<!-- order_summary.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Summary</title>
+    <script src="{{ url_for('static', filename='js/redirect.js') }}"></script>
+</head>
+<body>
+    <h1>Order Summary</h1>
+    <h2>Customer Name: {{ customer_name }}</h2>
+    <h2>List of Items:</h2>
+    
+    <ul>
+        {% for item in items if item.strip() %} <!-- the strip gets rid of the extra bullet bc there is a new line after the last item -->
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

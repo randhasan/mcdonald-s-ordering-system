@@ -1,0 +1,83 @@
+<!-- Main_Page.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>McDonald's Menu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+
+<body>
+    <div class="background_image">
+        <img src="{{ url_for('static', filename='images/backgroud_image.jpeg') }}" alt="">
+    </div>
+    <h1>McDonald's Menu</h1>
+    <p>McDonald's is the world's largest chain of hamburger fast food restaurants founded in 1940. It features various burgers, types of chicken, chicken sandwiches, French fries, soft drinks, breakfast item and desserts. In most markets, McDonald's offers salads and vegetarian items, wraps and so on.</p>
+
+    <div class="main_content">
+
+        <div class="left"> <!-- main menu -->
+            <div class="menu">
+                <h1>Main Menu</h1>
+                <ul> <!-- links to enable jumping to each row section -->
+                    <li><a href="#burgers"><img src="{{ url_for('static', filename='images/burgers/big_mac.jpeg') }}" alt="Burgers & Fries"> <h3>Burgers & Fries</h3></a></li>
+                    <li><a href="#drinks"><img src="{{ url_for('static', filename='images/drinks/coca-cola.jpeg') }}" alt="Drinks"> <h3>Drinks</h3></a></li>
+                    <li><a href="#coffees"><img src="{{ url_for('static', filename='images/coffees/iced_mocha.jpeg') }}" alt="Coffees"> <h3>Coffees</h3></a></li>
+                    <li><a href="#desserts"><img src="{{ url_for('static', filename='images/desserts/McFlurry.jpeg') }}" alt="Desserts"> <h3>Desserts</h3></a></li>
+                </ul>
+            </div>
+
+            <div class="submenu" id = "burgers">
+                <h2>Burgers, Fries, and Co.</h2>
+                <ul>
+                    <li><img src="{{ url_for('static', filename='images/burgers/big_mac.jpeg') }}" alt="Big Mac"> <h3>Big Mac</h3> <input type="text"></li>
+                    <li><img src="{{ url_for('static', filename='images/burgers/cheeseburger.jpeg') }}" alt="Cheeseburger"> <h3>Cheeseburger</h3> <input type="text"></li>
+                    <li><img src="{{ url_for('static', filename='images/burgers/quarter_pounder.jpeg') }}" alt="Quarter Pounder"> <h3>Quarter Pounder</h3> <input type="text"></li>
+                    <li><img src="{{ url_for('static', filename='images/burgers/fries.jpeg') }}" alt="Fries"> <h3>Fries</h3> <input type="text"></li>
+                </ul>
+            </div>
+
+            <div class="submenu" id = "drinks">
+                <h2>Drinks</h2>
+                <ul>
+                    <li><img src="{{ url_for('static', filename='images/drinks/coca-cola.jpeg') }}" alt="Coca-Cola"> <h3>Coca-Cola</h3> <input type="text"></li>
+                    <li><img src="{{ url_for('static', filename='images/drinks/dr_pepper.jpeg') }}" alt="Dr. Pepper"> <h3>Dr. Pepper</h3> <input type="text"></li>
+                    <li><img src="{{ url_for('static', filename='images/drinks/fanta_orange.jpeg') }}" alt="Fanta Orange"> <h3>Fanta Orange</h3> <input type="text"></li>
+                    <li><img src="{{ url_for('static', filename='images/drinks/sprite.jpeg') }}" alt="Sprite"> <h3>Sprite</h3> <input type="text"></li>
+                </ul>
+            </div>
+
+            <div class="submenu" id = "coffees">
+                <h2>Coffees</h2>
+                <ul>
+                    <li><img src="{{ url_for('static', filename='images/coffees/cappuccino.jpeg') }}" alt="Cappuccino"> <h3>Cappuccino</h3> <input type="text"></li>
+                    <li><img src="{{ url_for('static', filename='images/coffees/caramel_macchiato.jpeg') }}" alt="Caramel Macchiato"> <h3>Caramel Macchiato</h3> <input type="text"></li>
+                    <li><img src="{{ url_for('static', filename='images/coffees/iced_mocha.jpeg') }}" alt="Iced Mocha"> <h3>Iced Mocha</h3> <input type="text"></li>
+                    <li><img src="{{ url_for('static', filename='images/coffees/mocha_latte.jpeg') }}" alt="Mocha Latte"> <h3>Mocha Latte</h3> <input type="text"></li>
+                </ul>
+            </div>
+
+            <div class="submenu" id = "desserts">
+                <h2>Desserts</h2>
+                <ul>
+                    <li><img src="{{ url_for('static', filename='images/desserts/baked_apple_pie.jpeg') }}" alt="Baked Apple"> <h3>Baked Apple</h3> <input type="text"></li>
+                    <li><img src="{{ url_for('static', filename='images/desserts/chocolate_chips_cookie.jpeg') }}" alt="Cookie"> <h3>Cookie</h3> <input type="text"></li>
+                    <li><img src="{{ url_for('static', filename='images/desserts/hot_fudge_sundae.jpeg') }}" alt="Hot Fudge Sundae"> <h3>Hot Fudge Sundae</h3> <input type="text"></li>
+                    <li><img src="{{ url_for('static', filename='images/desserts/McFlurry.jpeg') }}" alt="McFlurry"> <h3>McFlurry</h3> <input type="text"></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="right"> <!-- order summary -->
+            <form action="/order_summary" method="POST" id="order-form">
+                <h1>Order Summary</h1>
+                <textarea rows="20" cols="50" name="order-details" readonly></textarea> <!-- text area to display order details (made sure it's read-only so user can't type)-->
+                <label for="customer-name">Customer Name:</label> <!-- label and input for customer name -->
+                <input type="text" id="customer-name" name="customer-name" placeholder="Enter your name"><br>
+                <button type="submit">Submit Order</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
